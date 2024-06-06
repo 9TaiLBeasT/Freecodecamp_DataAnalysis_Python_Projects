@@ -8,7 +8,7 @@ df = pd.read_csv('medical_examination.csv')
 
 # 2
 BMI = df['weight'] / (df['height'] / 100) ** 2
-df['overweight'] = (BMI > 25).astype(int)
+df['overweight'] = np.where(BMI > 25, 0, 1)
 
 # 3
 df[['cholesterol', 'gluc']] = df[['cholesterol', 'gluc']].replace([1, 2, 3], [0, 1, 1])
